@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://7r41yx7rv3io"]
+
+[ext_resource type="Script" path="res://thing.gd" id="1_spy63"]
+[ext_resource type="Texture2D" uid="uid://dhx363nkm5y6k" path="res://guy.png" id="2_3x7iy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5utc"]
+size = Vector2(62, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_648xw"]
+size = Vector2(62, 63)
+
+[node name="thing" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_spy63")
+
+[node name="Guy" type="Sprite2D" parent="."]
+position = Vector2(31, -31)
+texture = ExtResource("2_3x7iy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(31, -30.5)
+shape = SubResource("RectangleShape2D_f5utc")
+
+[node name="topRaycast" type="RayCast2D" parent="."]
+z_index = 1
+position = Vector2(61, -52)
+target_position = Vector2(62, -3)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="bottomRaycast" type="RayCast2D" parent="."]
+position = Vector2(61, 0)
+target_position = Vector2(61, -4)
+collision_mask = 2
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(31, -26)
+target_position = Vector2(33, 2)
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(31, -30.5)
+shape = SubResource("RectangleShape2D_648xw")
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_exited" from="hitbox" to="." method="_on_hitbox_area_exited"]

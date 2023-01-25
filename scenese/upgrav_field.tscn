@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://csb0xfgqbkk2s"]
+
+[ext_resource type="Texture2D" uid="uid://do8pome7yjb2s" path="res://upfield.png" id="1_5ejbm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8uvl"]
+size = Vector2(255, 255)
+
+[node name="upgrav field" type="Area2D"]
+
+[node name="Upfield" type="Sprite2D" parent="."]
+position = Vector2(128, -128)
+texture = ExtResource("1_5ejbm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(128.5, -128.5)
+shape = SubResource("RectangleShape2D_i8uvl")

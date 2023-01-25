@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://vlb2ga3t8j71"]
+
+[ext_resource type="Texture2D" uid="uid://5oaoyvev8inj" path="res://field.png" id="1_g1e6o"]
+[ext_resource type="Script" path="res://scenese/field.gd" id="1_l4odv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4alee"]
+size = Vector2(56, 84)
+
+[node name="ninetyfield" type="Area2D"]
+script = ExtResource("1_l4odv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(28, -42)
+shape = SubResource("RectangleShape2D_4alee")
+
+[node name="Field" type="Sprite2D" parent="."]
+position = Vector2(28, -42)
+scale = Vector2(0.4375, 0.4375)
+texture = ExtResource("1_g1e6o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

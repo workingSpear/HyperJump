@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ybx8dg0mluig"]
+
+[ext_resource type="Texture2D" uid="uid://b17rhk7a5pfn8" path="res://angrywall.png" id="1_a5cm7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ax4w7"]
+size = Vector2(64, 192)
+
+[node name="BadWall" type="StaticBody2D"]
+collision_layer = 2
+
+[node name="Angrywall" type="Sprite2D" parent="."]
+position = Vector2(32, -96)
+texture = ExtResource("1_a5cm7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, -96)
+shape = SubResource("RectangleShape2D_ax4w7")
